@@ -1,0 +1,25 @@
+<aside>
+  <ul>
+    {{#each @doc.chapters}}
+    <li>
+      <a href="#">{{chapter.title}}</a>
+      <ul>
+        {{#each chapter.pages}}
+        <li><a href="#">{{page.title}}</a></li>
+        {{/each}}
+      </ul>
+    </li>
+    {{/each}}
+  </ul>
+</aside>
+{{#each @doc.chapters}}
+<section id="doc-{{chapter.name}}-content">
+  <h1>{{chapter.title}}</h1>
+  {{#each chapter.pages}}
+  <article id="doc-{{page.name}}-page">
+    <h2>{{page.title}}</h2>
+    {{{page.content.html}}}
+  </article>
+  {{/each}}
+</section>
+{{/each}}

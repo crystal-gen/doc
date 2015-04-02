@@ -1,0 +1,22 @@
+name: doc
+version: 0.1.0
+description: doc generator
+
+author:
+  name: Chris Tate
+  email: chris@studiotate.com
+copyright: 2015 Studio Tate
+
+repository:
+  type: git
+  url: https://github.com/studiotate/crystal-doc
+
+gen:
+  file:
+    doc:
+      dest: doc.html
+
+generators:
+  authors:
+    path: .
+    version: latest
