@@ -2,24 +2,32 @@
   <ul>
     {{#each @doc.chapters}}
     <li>
-      <a href="#">{{chapter.title}}</a>
+      <a href="#{{{chapter.title}}}">{{{chapter.title}}}</a>
+      {{#if chapter.pages}}
       <ul>
         {{#each chapter.pages}}
-        <li><a href="#">{{page.title}}</a></li>
+        {{#if page.title}}
+        <li><a href="#{{{page.title}}}">{{{page.title}}}</a></li>
+        {{/if}}
         {{/each}}
       </ul>
+      {{/if}}
     </li>
     {{/each}}
   </ul>
 </aside>
 {{#each @doc.chapters}}
 <section id="doc-{{chapter.name}}-content">
-  <h1>{{chapter.title}}</h1>
+  <a name="{{{chapter.title}}}"></a>
+  <h1>{{{chapter.title}}}</h1>
+  {{#if chapter.pages}}
   {{#each chapter.pages}}
+  <a name="{{{page.title}}}"></a>
   <article id="doc-{{page.name}}-page">
-    <h2>{{page.title}}</h2>
+    <h2>{{{page.title}}}</h2>
     {{{page.content.html}}}
   </article>
   {{/each}}
+  {{/if}}
 </section>
 {{/each}}
