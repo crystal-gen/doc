@@ -1,0 +1,12 @@
+name: doc-test
+type: test
+version: 0.1.0
+
+dependencies:
+  configurations:
+    studiotate: latest
+  generators:
+    doc:
+      version: latest
+    readme:
+      version: latest

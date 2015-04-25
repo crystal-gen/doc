@@ -1,13 +1,13 @@
 <aside>
   <ul>
-    {{#each @doc.chapters}}
+    {{#each doc}}
     <li>
-      <a href="#{{{chapter.title}}}">{{{chapter.title}}}</a>
-      {{#if chapter.pages}}
+      <a href="#{{{chapter.title}}}">{{{this.title}}}</a>
+      {{#if pages}}
       <ul>
-        {{#each chapter.pages}}
-        {{#if page.title}}
-        <li><a href="#{{{page.title}}}">{{{page.title}}}</a></li>
+        {{#each pages}}
+        {{#if title}}
+        <li><a href="#{{{title}}}">{{{title}}}</a></li>
         {{/if}}
         {{/each}}
       </ul>
@@ -16,16 +16,16 @@
     {{/each}}
   </ul>
 </aside>
-{{#each @doc.chapters}}
-<section id="doc-{{chapter.name}}-content">
-  <a name="{{{chapter.title}}}"></a>
+{{#each doc.chapters}}
+<section id="doc-{{{name}}}-content">
+  <a name="{{{title}}}"></a>
   <h1>{{{chapter.title}}}</h1>
   {{#if chapter.pages}}
   {{#each chapter.pages}}
-  <a name="{{{page.title}}}"></a>
-  <article id="doc-{{page.name}}-page">
-    <h2>{{{page.title}}}</h2>
-    {{{page.content.html}}}
+  <a name="{{{title}}}"></a>
+  <article id="doc-{{name}}-page">
+    <h2>{{{title}}}</h2>
+    {{{content.html}}}
   </article>
   {{/each}}
   {{/if}}
